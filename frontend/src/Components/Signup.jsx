@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button, Card, TextField } from '@mui/material';
 
 function Signup() {
   return (
@@ -13,14 +14,15 @@ function Signup() {
         </center>
 
         <center>
-      <div style={{
-        border: '2px solid black',
-        width: '400px'
+      <Card variant='outlined' style={{
+        width: "500px",
+        height: "200px",
+        padding: "30px"
       }}>
-         Username - <input type="text" /><br />
-         Password - <input type="password" /><br />
-        <button>Sign up</button>
-      </div>
+        <TextField variant='outlined' label='Email' fullWidth={true}/><br /><br />
+        <TextField variant='outlined' label='Password' fullWidth={true}/><br /><br />
+        <Button variant='contained'>Sign-up</Button>   
+      </Card>
       </center>
     </div>
   )
