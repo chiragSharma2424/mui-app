@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Card, TextField, Typography } from "@mui/material";
 
 function Signup() {
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
   return (
@@ -26,13 +26,35 @@ function Signup() {
           borderRadius: "12px",
         }}>
 
-        <TextField label="Email" fullWidth margin="normal" />
-        <TextField label="Password" type="password" fullWidth margin="normal" />
+        <TextField label="Email" fullWidth margin="normal" onChange={(e) => {
+            setEmail(e.target.value);
+        }}/>
+        <TextField label="Password" type="password" fullWidth margin="normal" 
+           onChange={(e) => {
+            setPassword(e.target.value);
+           }}
+        />
+
         <Button variant="contained" fullWidth
           style={{ marginTop: "16px", borderRadius: "8px" }}
           
           onClick={() => {
-            
+            fetch('http://localhost:3000/admin/signup', {
+                method: "POST",
+                body: JSON.stringify({
+                    username: email,
+                    password: password
+                }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then((resp) => {
+                return resp.json();
+            }).then((data) => {
+                console.log(data);
+                console.log(data.token);
+                localStorage.setItem("token", data.token);
+            })
           }}
           >
             
