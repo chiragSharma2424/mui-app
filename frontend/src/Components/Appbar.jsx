@@ -12,7 +12,9 @@ function Appbar() {
         padding: '5px'
     }}>
         <div>
-            <Typography>Coursera</Typography>
+            <Typography style={{
+                fontSize: "30px"
+            }}>Coursera</Typography>
         </div>
       
       <div>
@@ -27,6 +29,12 @@ function Appbar() {
                 navigate('/signin');
             }}
            >Sign in</Button>
+
+           <Button variant='contained' style={{marginRight: "20px"}}
+            onClick={() => {
+                navigate('/addcourse');
+            }}
+           >Addcourse</Button>
       </div>
      
     </div>

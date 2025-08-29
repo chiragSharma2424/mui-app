@@ -7,9 +7,9 @@ function Addcourse() {
 
   return (
     <div style={{ display: "flex", justifyContent: "center", marginTop: "100px" }}>
-      <Card variant="outlined" style={{ width: "400px", padding: "25px" }}>
+      <Card variant="outlined" style={{ width: "400px", padding: "35px" }}>
         <Typography variant="h6" gutterBottom>
-          Add New Course
+          Create A New Course
         </Typography>
 
         <TextField 
@@ -23,7 +23,7 @@ function Addcourse() {
         />
 
         <TextField 
-          label="Description" 
+          label="Course Description" 
           variant="outlined" 
           fullWidth 
           margin="normal"

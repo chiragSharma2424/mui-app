@@ -8,11 +8,15 @@ function Signup() {
   return (
     <div style={{ textAlign: "center", marginTop: "120px" }}>
 
-      <Typography variant="h6" gutterBottom>
+      <Typography variant="h6" gutterBottom style={{
+        fontSize: "30px"
+      }}>
         Welcome to Coursera
       </Typography>
 
-      <Typography variant="body2" color="text.secondary" gutterBottom>
+      <Typography variant="body2" color="text.secondary" gutterBottom style={{
+        fontSize: "20 px"
+      }}>
         Sign up to continue
       </Typography>
     
