@@ -1,15 +1,18 @@
 import React from 'react'
-import { Button, Card, TextField } from '@mui/material';
+import { Button, Card, TextField, Typography } from '@mui/material';
 
 function Signup() {
   return (
     <div>
         <center>
             <div style={{
-                marginTop: '150px',
+                paddingTop: '150px',
                 marginBottom: '10px'
             }}>
-                Welcome to coursera signup above
+                <Typography variant='h6'>
+                    Welcome to coursera signup above
+                </Typography>
+                
             </div>
         </center>
 
