@@ -8,15 +8,16 @@ function Signup() {
       <Typography variant="h6" gutterBottom>
         Welcome to Coursera
       </Typography>
-      
+
       <Typography variant="body2" color="text.secondary" gutterBottom>
         Sign up to continue
       </Typography>
-
+    
+    
       <Card
         variant="outlined"
         style={{
-          width: "380px",
+          width: "450px",
           margin: "20px auto",
           padding: "25px",
           borderRadius: "12px",

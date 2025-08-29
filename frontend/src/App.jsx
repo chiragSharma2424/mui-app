@@ -1,6 +1,8 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom'
 import Signup from './Components/Signup';
 import Appbar from './Components/Appbar';
+import Signin from './Components/Signin';
 
 
 function App() {
@@ -10,7 +12,11 @@ function App() {
       height: "100vh"
     }}>
       <Appbar />
-      <Signup />
+
+      <Routes>
+        <Route path='/signup' element={<Signup />}/>
+        <Route path='/signin' element={<Signin />} />
+      </Routes>
     </div>
   )
 }
