@@ -1,34 +1,36 @@
-import React from 'react'
-import { Button, Card, TextField, Typography } from '@mui/material';
+import React from "react";
+import { Button, Card, TextField, Typography } from "@mui/material";
 
 function Signup() {
   return (
-    <div>
-        <center>
-            <div style={{
-                paddingTop: '150px',
-                marginBottom: '10px'
-            }}>
-                <Typography variant='h6'>
-                    Welcome to coursera signup above
-                </Typography>
-                
-            </div>
-        </center>
+    <div style={{ textAlign: "center", marginTop: "120px" }}>
 
-        <center>
-      <Card variant='outlined' style={{
-        width: "500px",
-        height: "200px",
-        padding: "30px"
-      }}>
-        <TextField variant='outlined' label='Email' fullWidth={true}/><br /><br />
-        <TextField variant='outlined' label='Password' fullWidth={true}/><br /><br />
-        <Button variant='contained'>Sign-up</Button>   
+      <Typography variant="h6" gutterBottom>
+        Welcome to Coursera
+      </Typography>
+      
+      <Typography variant="body2" color="text.secondary" gutterBottom>
+        Sign up to continue
+      </Typography>
+
+      <Card
+        variant="outlined"
+        style={{
+          width: "380px",
+          margin: "20px auto",
+          padding: "25px",
+          borderRadius: "12px",
+        }}>
+
+        <TextField label="Email" fullWidth margin="normal" />
+        <TextField label="Password" type="password" fullWidth margin="normal" />
+        <Button variant="contained" fullWidth
+          style={{ marginTop: "16px", borderRadius: "8px" }}>
+          Sign Up
+        </Button>
       </Card>
-      </center>
     </div>
-  )
+  );
 }
 
 export default Signup;
