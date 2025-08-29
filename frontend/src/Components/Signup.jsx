@@ -14,13 +14,10 @@ function Signup() {
         Welcome to Coursera
       </Typography>
 
-      <Typography variant="body2" color="text.secondary" gutterBottom style={{
-        fontSize: "20 px"
-      }}>
+      <Typography variant="body2" color="text.secondary" gutterBottom style={{ fontSize: "20 px" }}>
         Sign up to continue
       </Typography>
     
-
       <Card
         variant="outlined"
         style={{
@@ -61,7 +58,6 @@ function Signup() {
             })
           }}
           >
-            
           Sign Up
         </Button>
       </Card>
