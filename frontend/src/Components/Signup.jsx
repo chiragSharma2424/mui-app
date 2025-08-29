@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Card, TextField, Typography } from "@mui/material";
 
 function Signup() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
   return (
     <div style={{ textAlign: "center", marginTop: "120px" }}>
 
@@ -13,7 +16,7 @@ function Signup() {
         Sign up to continue
       </Typography>
     
-    
+
       <Card
         variant="outlined"
         style={{
@@ -26,7 +29,13 @@ function Signup() {
         <TextField label="Email" fullWidth margin="normal" />
         <TextField label="Password" type="password" fullWidth margin="normal" />
         <Button variant="contained" fullWidth
-          style={{ marginTop: "16px", borderRadius: "8px" }}>
+          style={{ marginTop: "16px", borderRadius: "8px" }}
+          
+          onClick={() => {
+            
+          }}
+          >
+            
           Sign Up
         </Button>
       </Card>
