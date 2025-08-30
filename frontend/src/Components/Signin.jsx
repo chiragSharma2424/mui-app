@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Card, TextField, Typography } from '@mui/material';
 
 function Signin() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
     <div>
       <center>
@@ -21,12 +24,21 @@ function Signin() {
             variant="outlined" 
             label="Email" 
             fullWidth 
+            onChange={(e) => {
+              setEmail(e.target.value);
+              console.log(email);
+            }}
             margin="normal"/>
             
+
           <TextField 
             variant="outlined" 
             label="Password" 
             type="password" 
+            onChange={(e) => {
+              setPassword(e.target.value);
+              console.log(password);
+            }}
             fullWidth 
             margin="normal"
           />
