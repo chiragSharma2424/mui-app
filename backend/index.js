@@ -1,8 +1,11 @@
 const express = require('express');
+const dotenv = require('dotenv');
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
 const cors = require('cors')
 const app = express();
+dotenv.config();
+const port = process.env.PORT;
 
 app.use(express.json());
 app.use(cors());
@@ -23,7 +26,7 @@ try {
 }
 console.log(ADMINS);
 
-const SECRET = 'my-secret-key';
+const SECRET = process.env.JET_SECRET
 
 const authenticateJwt = (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -47,6 +50,7 @@ app.get('/adim/me', authenticateJwt, (req, res) => {
   })
 })
 
+
 // Admin routes
 app.post('/admin/signup', (req, res) => {
   const { username, password } = req.body;
@@ -63,6 +67,8 @@ app.post('/admin/signup', (req, res) => {
   }
 });
 
+
+
 app.post('/admin/login', (req, res) => {
   const { username, password } = req.headers;
   const admin = ADMINS.find(a => a.username === username && a.password === password);
@@ -74,6 +80,8 @@ app.post('/admin/login', (req, res) => {
   }
 });
 
+
+
 app.post('/admin/courses', authenticateJwt, (req, res) => {
   const course = req.body;
   course.id = COURSES.length + 1;
@@ -81,6 +89,8 @@ app.post('/admin/courses', authenticateJwt, (req, res) => {
   fs.writeFileSync('courses.json', JSON.stringify(COURSES));
   res.json({ message: 'Course created successfully', courseId: course.id });
 });
+
+
 
 app.put('/admin/courses/:courseId', authenticateJwt, (req, res) => {
   const course = COURSES.find(c => c.id === parseInt(req.params.courseId));
@@ -93,9 +103,13 @@ app.put('/admin/courses/:courseId', authenticateJwt, (req, res) => {
   }
 });
 
+
+
 app.get('/admin/courses', authenticateJwt, (req, res) => {
   res.json({ courses: COURSES });
 });
+
+
 
 // User routes
 app.post('/users/signup', (req, res) => {
@@ -112,6 +126,8 @@ app.post('/users/signup', (req, res) => {
   }
 });
 
+
+
 app.post('/users/login', (req, res) => {
   const { username, password } = req.headers;
   const user = USERS.find(u => u.username === username && u.password === password);
@@ -123,9 +139,13 @@ app.post('/users/login', (req, res) => {
   }
 });
 
+
+
 app.get('/users/courses', authenticateJwt, (req, res) => {
   res.json({ courses: COURSES });
 });
+
+
 
 app.post('/users/courses/:courseId', authenticateJwt, (req, res) => {
   const course = COURSES.find(c => c.id === parseInt(req.params.courseId));
@@ -146,6 +166,8 @@ app.post('/users/courses/:courseId', authenticateJwt, (req, res) => {
   }
 });
 
+
+
 app.get('/users/purchasedCourses', authenticateJwt, (req, res) => {
   const user = USERS.find(u => u.username === req.user.username);
   if (user) {
@@ -155,10 +177,16 @@ app.get('/users/purchasedCourses', authenticateJwt, (req, res) => {
   }
 });
 
+
+
 app.get('/admin/me', authenticateJwt, (req, res) => {
   res.json({
     username: req.user.username
   })
-})
+});
 
-app.listen(3000, () => console.log('Server running on port 3000'));
+
+
+app.listen(port, () => {
+  console.log(`server running on http://localhost:${port}`);
+});
