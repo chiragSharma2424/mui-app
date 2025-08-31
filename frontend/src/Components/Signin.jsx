@@ -47,6 +47,24 @@ function Signin() {
             color="primary" 
             fullWidth 
             sx={{ marginTop: "15px", borderRadius: "8px", textTransform: "none" }}
+            onClick={() => {
+              fetch('http:localhost:3000/admin/signin', {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                  email: email,
+                  password: password
+                })
+              }).then((resp) => {
+                return resp.json();
+              }).then((data) => {
+                console.log(data);
+              }).catch((err) => {
+                console.log(`something went wrong: ${err}`);
+              })
+            }}
           >
             Sign In
           </Button>
