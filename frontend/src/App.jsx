@@ -4,6 +4,7 @@ import Signup from './Components/Signup';
 import Appbar from './Components/Appbar';
 import Signin from './Components/Signin';
 import Addcourse from './Components/Addcourse';
+import Homepage from './Components/Homepage';
 
 
 function App() {

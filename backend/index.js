@@ -26,7 +26,7 @@ try {
 }
 console.log(ADMINS);
 
-const SECRET = process.env.JET_SECRET
+const SECRET = process.env.JWT_SECRET
 
 const authenticateJwt = (req, res, next) => {
   const authHeader = req.headers.authorization;

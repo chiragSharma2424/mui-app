@@ -1,10 +1,24 @@
 import React from 'react';
 import { Button, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 function Appbar() {
     const navigate = useNavigate();
+
+    useEffect(() => {
+        fetch('http://localhost:3000/admin/me', {
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            }
+        }).then((resp) => {
+            return resp.json();
+        }).then((data) => {
+            console.log(data);
+        })
+    }, []);
+
   return (
     <div style={{
         display: 'flex',
